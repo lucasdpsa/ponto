@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Ponto</title>
+</head>
+<body>
+
+    <section>
+        <h1>Controle de Ponto</h1>
+        <p id="datetime"></p>
+    </section>
+
+    <section>
+        <label for="inicio">Inicio de expediente</label>
+        <input type="number" id="incio" min="6" max="12"> a.m <br><br>
+
+        <label for="fim">Fim de expediente</label>
+        <input type="number" id="fim" min="18" max="24"> p.m <br><br>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        function updateDateTime() {
+    const now = new Date();
+    const formattedDateTime = now.toLocaleString('pt-BR', {
+        dateStyle: 'full',
+        timeStyle: 'medium',
+    });
+
+    document.getElementById('datetime').textContent = formattedDateTime;
+    }
+
+    // Atualiza a data e hora a cada segundo
+    setInterval(updateDateTime, 1000);
+
+    // Chama a função imediatamente ao carregar a página
+    updateDateTime();
+
+    </script>
+</body>
+</html>
